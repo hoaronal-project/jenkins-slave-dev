@@ -1,6 +1,4 @@
-node("jenkins-slave-pdms-dev") {
-    
-    properties([
+ properties([
         parameters([
             string(name: 'CR_ID', description: 'CR ID', trim: true),
             choice(name: 'ACTION', choices: [' ', 'CHECK', 'STOP', 'START', 'DEPLOY', 'ROLLBACK'], description: 'Action'),
@@ -15,4 +13,3 @@ node("jenkins-slave-pdms-dev") {
             }
         }
     }
-}
