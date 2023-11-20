@@ -7,6 +7,7 @@ pipeline {
                     properties([
                         parameters([
                             choice(
+                                choiceType: 'ET_ORDERED_LIST',
                                 choices: ['ONE', 'TWO'], 
                                 name: 'PARAMETER_01'
                             ),
