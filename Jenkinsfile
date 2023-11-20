@@ -63,6 +63,9 @@ pipeline {
                     if (params.ALL) {
                         echo "ALL: " + params.ALL
                     }
+                    echo "BOSS: " + params.BOSS
+                    echo "SFMWEB: " + params.SFMWEB
+                    echo "OMR: " + params.OMR
                 }
             }
         }
