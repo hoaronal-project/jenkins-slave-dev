@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Selected programming language: \${params.MODULES}"
+                echo "Selected programming language: " + params.MODULES
             }
         }
     }
