@@ -1,9 +1,36 @@
-node("jenkins-slave-dev") {
-    properties([
-        parameters([
-            string(name: 'CR_ID', description: 'CR ID', trim: true),
-            choice(name: 'ACTION', choices: ['CHECK', 'STOP', 'START', 'DEPLOY', 'ROLLBACK'], description: 'Action'),
-            choice(name: 'MODULE', choices: ['ALL', 'BO1', 'SFM1', 'T1', 'O1', 'R1', 'O1'], description: 'Module')
-        ])
-    ])
+pipeline {
+    agent any
+    stages {
+        stage('Setup parameters') {
+            steps {
+                script { 
+                    properties([
+                        parameters([
+                            choice(
+                                choices: ['ONE', 'TWO'], 
+                                name: 'PARAMETER_01'
+                            ),
+                            booleanParam(
+                                defaultValue: true, 
+                                description: '', 
+                                name: 'BOOLEAN'
+                            ),
+                            text(
+                                defaultValue: '''
+                                this is a multi-line 
+                                string parameter example
+                                ''', 
+                                 name: 'MULTI-LINE-STRING'
+                            ),
+                            string(
+                                defaultValue: 'scriptcrunch', 
+                                name: 'STRING-PARAMETER', 
+                                trim: true
+                            )
+                        ])
+                    ])
+                }
+            }
+        }
+    }   
 }
