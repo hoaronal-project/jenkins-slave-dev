@@ -1,15 +1,14 @@
- properties([
-        parameters([
-            string(name: 'CR_ID', description: 'CR ID', trim: true),
-            choice(name: 'ACTION', choices: [' ', 'CHECK', 'STOP', 'START', 'DEPLOY', 'ROLLBACK'], description: 'Action'),
-            choice(name: 'MODULE', choices: ['ALL', 'BOSS', 'SFMWEB', 'TAS', 'ODE', 'RES', 'OMR'], description: 'Module')
-        ])
-    ])
-
+pipeline {
+    agent any
+    parameters {
+        choice(name: 'programmingLanguage', choices: choices: [' ', 'CHECK', 'STOP', 'START', 'DEPLOY', 'ROLLBACK'], description: 'Choose a programming language')
+    }
     stages {
         stage('Build') {
             steps {
                 echo "Selected programming language: \${params.MODULES}"
+                echo "Selected programming language: \${params.programmingLanguage}"
             }
         }
     }
+}
