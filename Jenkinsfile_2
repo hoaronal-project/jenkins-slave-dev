@@ -3,7 +3,7 @@ def activeChoices = load('getActiveChoices.groovy')
 pipeline {
     agent any
     parameters {
-        choice(name: 'programmingLanguage', choices: activeChoices, description: 'Choose a programming language')
+        choice(name: 'programmingLanguage', choices: choices: [' ', 'CHECK', 'STOP', 'START', 'DEPLOY', 'ROLLBACK'], description: 'Choose a programming language')
     }
     stages {
         stage('Build') {
