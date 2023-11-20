@@ -1,11 +1,13 @@
 pipeline {
     agent any
-    options([
-        parameters([
-            string(name: 'CR_ID', description: 'CR ID', trim: true),
-            choice(name: 'MODULE', choices: ['ALL', 'BOSS', 'SFMWEB', 'TAS', 'ODE', 'RES', 'OMR'], description: 'Module')
-        ])
-    ])
+    options([[$class: 'ThrottleJobProperty',
+            categories: ['xcodebuild'],
+            limitOneJobWithMatchingParams: false,
+            maxConcurrentPerNode: 0,
+            maxConcurrentTotal: 0,
+            paramsToUseForLimit: '',
+            throttleEnabled: true,
+            throttleOption: 'category']])
 
     stages {
         stage('Build') {
