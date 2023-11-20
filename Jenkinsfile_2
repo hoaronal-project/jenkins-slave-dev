@@ -1,4 +1,3 @@
-def activeChoices = load('getActiveChoices.groovy')
 
 pipeline {
     agent any
