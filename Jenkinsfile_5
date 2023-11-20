@@ -1,5 +1,11 @@
 pipeline {
     agent any
+    properties([
+        parameters([
+            string(name: 'CR_ID', description: 'CR ID', trim: true),
+            choice(name: 'MODULE', choices: ['ALL', 'BOSS', 'SFMWEB', 'TAS', 'ODE', 'RES', 'OMR'], description: 'Module')
+        ])
+    ])
 
     stages {
         stage('Build') {
