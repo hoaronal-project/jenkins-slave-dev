@@ -1,3 +1,5 @@
+'OMR'
+
 pipeline {
     agent any
     stages {
@@ -12,9 +14,39 @@ pipeline {
                                 name: 'PARAMETER_01'
                             ),
                             booleanParam(
-                                defaultValue: true, 
+                                defaultValue: false, 
                                 description: '', 
-                                name: 'BOOLEAN'
+                                name: 'ALL'
+                            ),
+                            booleanParam(
+                                defaultValue: false, 
+                                description: '', 
+                                name: 'BOSS'
+                            ),
+                            booleanParam(
+                                defaultValue: false, 
+                                description: '', 
+                                name: 'SFMWEB'
+                            ),
+                            booleanParam(
+                                defaultValue: false, 
+                                description: '', 
+                                name: 'TAS'
+                            ),
+                            booleanParam(
+                                defaultValue: false, 
+                                description: '', 
+                                name: 'ODE'
+                            ),
+                            booleanParam(
+                                defaultValue: false, 
+                                description: '', 
+                                name: 'RES'
+                            ),
+                            booleanParam(
+                                defaultValue: false, 
+                                description: '', 
+                                name: 'OMR'
                             ),
                             text(
                                 defaultValue: '''
