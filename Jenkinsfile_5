@@ -1,13 +1,10 @@
 pipeline {
     agent any
-    parameters {
-        choice(name: 'programmingLanguage', choices: choices: [' ', 'CHECK', 'STOP', 'START', 'DEPLOY', 'ROLLBACK'], description: 'Choose a programming language')
-    }
+
     stages {
         stage('Build') {
             steps {
                 echo "Selected programming language: \${params.MODULES}"
-                echo "Selected programming language: \${params.programmingLanguage}"
             }
         }
     }
