@@ -7,11 +7,25 @@
 
 pipeline {
     agent any
-    stages {
-        stage('Build') {
-            steps {
-                echo "Selected programming language: " + params.MODULES
+    
+    if ('BOSS' in params.MODULE) {
+        stages {
+            stage('Build') {
+                steps {
+                    echo "BOSS: " + params.MODULES
+                }
             }
         }
     }
+
+    if ('ALL' in params.MODULE) {
+        stages {
+            stage('Build') {
+                steps {
+                    echo "ALL: " + params.MODULES
+                }
+            }
+        }
+    }
+    
 }
