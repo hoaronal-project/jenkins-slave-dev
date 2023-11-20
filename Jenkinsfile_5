@@ -8,7 +8,7 @@
 pipeline {
     agent any
     
-    if ('BOSS' in params.MODULE) {
+    if ('BOSS' in params.MODULES) {
         stages {
             stage('Build') {
                 steps {
@@ -18,7 +18,7 @@ pipeline {
         }
     }
 
-    if ('ALL' in params.MODULE) {
+    if ('ALL' in params.MODULES) {
         stages {
             stage('Build') {
                 steps {
