@@ -7,25 +7,20 @@
 
 pipeline {
     agent any
-    
-    if ('BOSS' in params.MODULES) {
-        stages {
+    stages {
+         if ('BOSS' in params.MODULES) {
             stage('Build') {
                 steps {
                     echo "BOSS: " + params.MODULES
                 }
             }
-        }
-    }
-
-    if ('ALL' in params.MODULES) {
-        stages {
+         }
+        if ('ALL' in params.MODULES) {
             stage('Build') {
                 steps {
                     echo "ALL: " + params.MODULES
                 }
             }
-        }
+         }
     }
-    
 }
